@@ -13,7 +13,7 @@ namespace DarwinFeed
             theToken = new AccessToken();
             theToken.TokenValue = token;
         }
-        private const string token = @"d36292b6-202d-4f5d-8049-a3176d39567b";
+        private const string token = @"Your token here";
         private AccessToken theToken;        
         public AccessToken Token
         {
