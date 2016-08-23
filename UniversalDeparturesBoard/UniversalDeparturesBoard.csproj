@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <ProjectGuid>{1386ee89-35c5-4ff3-be7a-016d7142ed2b}</ProjectGuid>
+    <ProjectGuid>{1386EE89-35C5-4FF3-BE7A-016D7142ED2B}</ProjectGuid>
     <OutputType>AppContainerExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>UniversalDeparturesBoard</RootNamespace>
@@ -16,9 +16,7 @@
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    
     <PackageCertificateKeyFile>UniversalDeparturesBoard_TemporaryKey.pfx</PackageCertificateKeyFile>
-    
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <DebugSymbols>true</DebugSymbols>
@@ -97,18 +95,121 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="BooleanToVisibilityConverter.cs" />
+    <Compile Include="BrushConstants.cs" />
+    <Compile Include="CallingPointViewModel.cs" />
+    <Compile Include="DarwinCallingPoint.cs" />
+    <Compile Include="DarwinClient.cs" />
+    <Compile Include="DarwinDataStore.cs" />
+    <Compile Include="DarwinDepartureBoard.cs" />
+    <Compile Include="DarwinDepartureBoardFactory.cs" />
+    <Compile Include="DarwinService.cs" />
+    <Compile Include="DarwinServiceLocation.cs" />
+    <Compile Include="DarwinServiceType.cs" />
+    <Compile Include="DarwinToken.cs" />
+    <Compile Include="DestinationRowViewModel.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MainWindowViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\DawinWebService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Settings.cs" />
+    <Compile Include="UcDestinationRow.xaml.cs" />
+    <Compile Include="Util.cs" />
+    <Compile Include="WrapPanel.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
-    
+    <None Include="Properties\ServiceReferences.Designer.ClientConfig" />
+    <None Include="Service References\DawinWebService\darwin_token_types_2013-11-28.wsdl" />
+    <None Include="Service References\DawinWebService\darwin_token_types_2013-11-28.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DawinWebService\darwin_token_types_2013-11-281.wsdl" />
+    <None Include="Service References\DawinWebService\darwin_token_types_2013-11-281.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DawinWebService\RTTI_2007-10-10_ldb_common_types.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DawinWebService\RTTI_2007-10-10_ldb_common_types1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DawinWebService\RTTI_2012-01-13_ldb_types.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DawinWebService\RTTI_2012-01-13_ldb_types1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DawinWebService\RTTI_2015-11-27_ldb_common_types.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DawinWebService\RTTI_2015-11-27_ldb_common_types1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DawinWebService\RTTI_2015-11-27_ldb_types.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DawinWebService\RTTI_2015-11-27_ldb_types1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DawinWebService\rtti_2016-02-16_ldb.wsdl" />
+    <None Include="Service References\DawinWebService\rtti_2016-02-16_ldb1.wsdl" />
+    <None Include="Service References\DawinWebService\RTTI_2016-02-16_ldb_common_types.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DawinWebService\RTTI_2016-02-16_ldb_common_types1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DawinWebService\RTTI_2016-02-16_ldb_types.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DawinWebService\RTTI_2016-02-16_ldb_types1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DawinWebService\UniversalDeparturesBoard.DawinWebService.GetArrBoardWithDetailsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DawinWebService\UniversalDeparturesBoard.DawinWebService.GetArrDepBoardWithDetailsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DawinWebService\UniversalDeparturesBoard.DawinWebService.GetArrivalBoardResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DawinWebService\UniversalDeparturesBoard.DawinWebService.GetArrivalDepartureBoardResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DawinWebService\UniversalDeparturesBoard.DawinWebService.GetDepartureBoardResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DawinWebService\UniversalDeparturesBoard.DawinWebService.GetDepBoardWithDetailsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DawinWebService\UniversalDeparturesBoard.DawinWebService.GetFastestDeparturesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DawinWebService\UniversalDeparturesBoard.DawinWebService.GetFastestDeparturesWithDetailsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DawinWebService\UniversalDeparturesBoard.DawinWebService.GetNextDeparturesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DawinWebService\UniversalDeparturesBoard.DawinWebService.GetNextDeparturesWithDetailsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DawinWebService\UniversalDeparturesBoard.DawinWebService.GetServiceDetailsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DawinWebService\wsdl.wsdl" />
+    <None Include="Service References\DawinWebService\wsdl1.wsdl" />
     <None Include="UniversalDeparturesBoard_TemporaryKey.pfx" />
-    
   </ItemGroup>
   <ItemGroup>
     <Content Include="Properties\Default.rd.xml" />
@@ -119,6 +220,12 @@
     <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
     <Content Include="Assets\StoreLogo.png" />
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
+    <None Include="Service References\DawinWebService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\DawinWebService\configuration.svcinfo" />
+    <None Include="Service References\DawinWebService\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -129,12 +236,20 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="UcDestinationRow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
-  
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\DawinWebService\" />
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
-
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -13,18 +13,27 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-// The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
 namespace DarwinFeed
 {
     /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
+    /// Interaction logic for DestinationRow.xaml
     /// </summary>
-    public sealed partial class MainPage : Page
+    public partial class DestinationRow : UserControl
     {
-        public MainPage()
+        public DestinationRow()
         {
-            this.InitializeComponent();
+            InitializeComponent();
+            this.Loaded += DestinationRow_Loaded;
         }
+
+        void DestinationRow_Loaded(object sender, RoutedEventArgs e)
+        {
+            grdOutter.ColumnDefinitions[0].MaxWidth = this.ActualWidth * 0.7;
+        }
+
+  
+
+        
     }
 }

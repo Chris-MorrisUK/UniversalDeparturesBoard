@@ -1,0 +1,81 @@
+﻿<UserControl x:Class="DarwinFeed.DestinationRow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:darwin="clr-namespace:DarwinFeed"
+             xmlns:basicControls="using:BasicControls"
+             xmlns:UIBits="using:AppUIBasics.Common"             
+             mc:Ignorable="d" 
+             d:DesignHeight="70" d:DesignWidth="800"                
+             Margin="2,0"
+             >
+    <UserControl.Resources>
+        <UIBits:BooleanToVisibilityConverter x:Key="BooleanToVisibile" />
+
+        <Style TargetType="TextBlock">
+            <Setter Property="Foreground" Value="{StaticResource brushText}" />
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+        <Thickness x:Key="destTextMargin">10,0,0,0</Thickness>
+    </UserControl.Resources>
+    <Grid Name="grdOutter">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.7*"/>
+            <ColumnDefinition Width="0.2*"/>
+            <ColumnDefinition Width="0.05*"/>
+            <ColumnDefinition Width="0.05*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Name="grdStationName" HorizontalAlignment="Stretch">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.4*"/>
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <TextBlock Margin="{StaticResource destTextMargin}" TextWrapping="Wrap" Text="{Binding PointName,Mode=OneTime}" HorizontalAlignment="Stretch" Name="txtDestination"
+  VerticalAlignment="Stretch" Grid.Row="0" FontSize="32" />
+            <TextBlock Text="{Binding ServiceMessage}" HorizontalAlignment="Right" FontSize="18" Name="txtServiceMessage" />
+            <Rectangle Name="CancelledLine" HorizontalAlignment="Left" VerticalAlignment="Center"  Margin="10,5,0,0" Height="3" Stroke="{StaticResource cancelledRed}"  Fill="{StaticResource cancelledRed}" Width="{Binding ElementName=txtDestination,Path=ActualWidth}" Visibility="{Binding Cancelled,Converter={StaticResource BooleanToVisibile} }"/>
+            <Rectangle Name="CancelledOutterBox" HorizontalAlignment="Left" VerticalAlignment="Center"  Margin="10,5,0,0" Fill="#50837070" Stroke="{StaticResource cancelledRed}" Height="{Binding ElementName=txtDestination,Path=ActualHeight}" Width="{Binding ElementName=txtDestination,Path=ActualWidth}" Visibility="{Binding Cancelled,Converter={StaticResource BooleanToVisibile} }"/>
+            <ListBox Background="{StaticResource brushBackground}" Name="lvCallingPoints" Grid.Row="1" Foreground="{StaticResource brushText}"
+  ItemsSource="{Binding CallingPoints,Mode=OneWay}"
+  BorderThickness="0"
+  ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+  HorizontalAlignment="Stretch"
+
+  Visibility="{Binding Path=ShowItems, Converter={StaticResource BooleanToVisibile}}"
+  >
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <basicControls:WrapPanel RowHeight="30" />
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid x:Name="grdCallingPoint" Height="24">
+                            <Grid.Resources>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="FontSize" Value="18" />
+                                </Style>
+                            </Grid.Resources>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" HorizontalAlignment="Left" Text="{Binding PointName}" Margin="5,0" Height="28"/>
+                            <TextBlock Grid.Column="1" HorizontalAlignment="Right" Text="{Binding DepartureTimeString}" Margin="5,0" Height="28"/>
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
+        </Grid>
+
+        <TextBlock Name="tbLateness" Text="{Binding Lateness,Mode=OneWay}" FontSize="18" Grid.Column="1" HorizontalAlignment="Right" />
+        <TextBlock Name="tbTime"  Text="{Binding DepartureTimeString,Mode=OneWay}" Grid.Column="1" FontSize="72" Foreground="{Binding TimeColourBrush}" HorizontalAlignment="Center"/>
+        <Rectangle Name="timeCancelledLine" HorizontalAlignment="Center" Grid.Column="1"  VerticalAlignment="Center"  Margin="0,5,0,0" Height="3" Stroke="{StaticResource cancelledRed}" 
+                   Fill="{StaticResource cancelledRed}" Width="{Binding ElementName=tbTime,Path=ActualWidth}"  Visibility="{Binding Cancelled,Converter={StaticResource BooleanToVisibile} }"/>
+        <TextBlock Name="tbPlatform" Text="{Binding Platform,Mode=OneWay}" Grid.Column="2" FontSize="32" HorizontalAlignment="Center"/>
+        <TextBlock Name="tbHeadCode" Text="{Binding Headcode,Mode=OneTime}" Grid.Column="3" FontSize="20" HorizontalAlignment="Right"/>
+    </Grid>
+</UserControl>

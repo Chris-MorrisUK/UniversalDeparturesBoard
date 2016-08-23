@@ -1,8 +1,15 @@
 ﻿<Application
-    x:Class="UniversalDeparturesBoard.App"
+    x:Class="DarwinFeed.App"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:UniversalDeparturesBoard"
+    xmlns:local="using:DarwinFeed"
     RequestedTheme="Light">
+    <Application.Resources>
+
+        <SolidColorBrush x:Key="brushText" Color="#FF3AD122"/>
+        <SolidColorBrush x:Key="brushBackground" Color="Black"/>
+        <SolidColorBrush x:Key="brushUpdateTimeText" Color="#FF405870"/>
+        <SolidColorBrush x:Key="cancelledRed" Color="#FF800000"/>
+    </Application.Resources>
 
 </Application>
